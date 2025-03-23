@@ -15,10 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from auto import views
   
+cars_patterns = [
+    path("", views.index),
+    path("new", views.new),
+    path("model", views.model),
+]
+ 
 urlpatterns = [
-    path('', views.index),
-    path('about', views.about, kwargs={"name":"Lexus", "year": 2023}),
+    path("", views.index),
+    path("cars/", include(cars_patterns)),
 ]
