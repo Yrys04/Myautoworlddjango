@@ -17,9 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from auto import views
- 
+  
 urlpatterns = [
     path('', views.index),
-    path('about', views.about),
-    path('contact', views.contact),
+    path('about', views.about, kwargs={"name":"Lexus", "year": 2023}),
 ]
