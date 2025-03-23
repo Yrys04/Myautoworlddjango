@@ -1,17 +1,17 @@
-from django.shortcuts import render
+from django.template.response import TemplateResponse
+  
+def index(request):
+    return TemplateResponse(request,  "index.html")
 
 # Create your views here.
 
-from django.http import HttpResponse
+from django.shortcuts import render
  
 def index(request):
-    return HttpResponse("Главная страница")
+    return render(request, "index.html")
  
-def cars(request):
-    return HttpResponse("Список машин")
+def about(request):
+    return render(request, "about.html")
  
-def new(request):
-    return HttpResponse("Новые автомобили")
- 
-def model(request):
-    return HttpResponse("Наиболее популярные модели")
+def contact(request):
+    return render(request, "contact.html")
